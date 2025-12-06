@@ -1,6 +1,6 @@
 {
   enable = true;
-  theme = "/etc/nixos/rofi/themes/gruvbox-material/theme.rasi";
+  theme = "~/.config/rofi/gruvbox-material/theme.rasi";
   extraConfig = {
     display-ssh = "";
     display-run = "";
@@ -10,4 +10,3 @@
     show-icons = true;
   };
 }
-

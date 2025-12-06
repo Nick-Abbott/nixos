@@ -105,9 +105,9 @@ in
     uid = 1000;
     extraGroups = [ "networkmanager" "wheel" "docker" "video" "input" ];
     shell = pkgs.zsh;
-    ignoreShellProgramCheck = true;
     password = "temp123";
   };
+  programs.zsh.enable = true;
 
   home-manager = {
     useUserPackages = true;

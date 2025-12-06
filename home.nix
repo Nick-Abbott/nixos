@@ -24,6 +24,7 @@ in {
 
   programs.waybar = import ./waybar/waybar.nix;
   programs.rofi = import ./rofi/rofi.nix;
+  home.file.".config/rofi/gruvbox-material/theme.rasi".source = ./rofi/themes/gruvbox-material/theme.rasi;
 
   programs.zsh = import ./zsh/zsh.nix { inherit pkgs lib configDir; };
   home.file.".config/zsh/.p10k.zsh".source = ./zsh/p10k.zsh;
@@ -46,6 +47,13 @@ in {
     enable = true;
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "gruvbox_dark";
+    };
+  };
+
   home.packages = with pkgs; [
     google-chrome
     firefox
@@ -57,7 +65,6 @@ in {
     windsurf
     jetbrains.idea-community
 
-    btop
     grim
     slurp
     wl-clipboard

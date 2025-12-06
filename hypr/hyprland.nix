@@ -2,6 +2,7 @@
   enable = true;
   package = null;
   portalPackage = null;
+  systemd.enable = true;
 
   settings = {
     "$mod"      = "SUPER";
@@ -105,6 +106,7 @@
     exec-once = [
       "nm-applet"
       "blueman-applet"
+      "systemctl --user start hyprpolkitagent"
     ];
 
     bind = [

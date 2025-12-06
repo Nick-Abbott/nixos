@@ -31,6 +31,8 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
+  security.polkit.enable = true;
+
   # Networking
   networking.hostName = "Nick-Workstation";
   networking.networkmanager.enable = true;
@@ -128,6 +130,7 @@ in
 
     tuigreet
     hyprland-qtutils
+    hyprpolkitagent
     libnotify
   ];
 

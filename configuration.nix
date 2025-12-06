@@ -16,6 +16,12 @@ in
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -28,6 +34,7 @@ in
   # Networking
   networking.hostName = "Nick-Workstation";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";

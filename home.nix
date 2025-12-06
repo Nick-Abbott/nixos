@@ -52,7 +52,10 @@ in {
     spotify
     vesktop
     slack
+
     vscode
+    windsurf
+    jetbrains.idea-community
 
     btop
     grim

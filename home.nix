@@ -19,6 +19,10 @@ in {
 
   programs.waybar = import ./waybar/waybar.nix;
   programs.rofi = import ./rofi/rofi.nix;
+
+  programs.zsh = import ./zsh/zsh.nix { inherit pkgs lib configDir; };
+  home.file.".config/zsh/.p10k.zsh".source = ./zsh/p10k.zsh;
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -40,6 +44,8 @@ in {
     slurp
     wl-clipboard
     fastfetch
+
+    zsh-powerlevel10k
   ];
 
   home.pointerCursor = {
@@ -68,27 +74,6 @@ in {
       };
       init.defaultBranch = "main";
     };
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    dotDir = "${configDir}/zsh";
-    history = {
-      path = "$HOME/.zsh_history";
-      size = 10000;
-      save = 10000;
-      ignoreDups = true;
-      ignoreAllDups = true;
-      findNoDups = true;
-      share = true;
-      append = true;
-      extended = true;
-    };
-    autocd = true;
-    initContent = lib.mkOrder 500 "setopt NO_BEEP";
   };
 
   programs.ghostty = {

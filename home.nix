@@ -3,7 +3,12 @@
 let
   homeDir = "/home/nabbott";
   configDir = homeDir + "/.config";
+  zen = builtins.getFlake "github:0xc000022070/zen-browser-flake";
 in {
+  imports = [
+    zen.homeModules.twilight
+  ];
+
   home.stateVersion = "25.11";
   home.username = "nabbott";
   home.homeDirectory = homeDir;
@@ -37,7 +42,12 @@ in {
     defaultEditor = true;
   };
 
+  programs.zen-browser = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
+    google-chrome
     firefox
     spotify
     vesktop

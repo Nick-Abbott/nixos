@@ -6,7 +6,7 @@
   settings = {
     "$mod"      = "SUPER";
     "$terminal" = "ghostty";
-    "$browser"  = "firefox";
+    "$browser"  = "zen";
     "$editor"   = "code";
     "$editor2"  = "idea";
     "$aiEditor" = "windsurf";

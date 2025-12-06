@@ -122,6 +122,8 @@ in
     libnotify
   ];
 
+  programs.ssh.startAgent = true;
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

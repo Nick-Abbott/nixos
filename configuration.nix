@@ -25,9 +25,28 @@ in
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Use the systemd-boot EFI boot loader.
+  # Booting
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.plymouth = {
+    enable = true;
+    themePackages = [
+      (pkgs.adi1090x-plymouth-themes.override {
+        selected_themes = [ "abstract_ring" ];
+      })
+    ];
+    theme = "abstract_ring";
+  };
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "loglevel=3"
+    "systemd.show_status=0"
+    "rd.systemd.show_status=0"
+    "rd.udev.log_level=0"
+  ];
+  boot.consoleLogLevel = 0;
+  boot.initrd.verbose = false;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -62,14 +81,17 @@ in
 
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet \
-          --cmd 'Hyprland' \
-          --remember-session \
-          --remember-user";
-        user = "greeter";
+        user = "nabbott";
+        command = "${pkgs.dbus}/bin/dbus-run-session Hyprland";
       };
     };
   };
+
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+  systemd.services.fstrim.wantedBy = [ ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -113,7 +135,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.nabbott = import ./home.nix { inherit pkgs lib; };
+    users.nabbott = import ./home/home.nix { inherit pkgs lib; };
   };
 
   # List packages installed in system profile.

@@ -33,5 +33,7 @@ in {
     windsurf
     jetbrains.idea-community
   ];
+
+  home.file."Games".source = "/data/games";
 }
 

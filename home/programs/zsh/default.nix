@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.zsh = {
@@ -6,9 +6,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
     history = {
-      path = "$HOME/.zsh_history";
+      path = "${config.home.homeDirectory}/.config/zsh/.zsh_history";
       size = 10000;
       save = 10000;
       ignoreDups = true;

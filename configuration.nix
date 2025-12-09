@@ -13,6 +13,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import "${home-manager}/nixos")
+      ./gaming/default.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -135,7 +136,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "backup";
-    users.nabbott = import ./home/home.nix { inherit pkgs lib; };
+    users.nabbott = import ./home/home.nix { inherit config pkgs lib; };
   };
 
   # List packages installed in system profile.

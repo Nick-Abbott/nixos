@@ -54,6 +54,7 @@
       "application/json" = "code.desktop";
       "application/xml" = "code.desktop";
       "text/x-java" = "jetbrains-idea-ce.desktop";
+      "text/x-kotlin" = "jetbrains-idea-ce.desktop";
     };
   };
 

@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  home.file.".config/hypr/screenshot-notify.sh" = {
+    source = ./screenshot-notify.sh;
+    executable = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -144,10 +149,10 @@
 
         "$mod, Q, killactive"
 
-        "$mod, O, exec, grim - | wl-copy"
-        ''$mod|SHIFT, O, exec, grim -g "$(slurp)" - | wl-copy''
-        ''$mod|ALT, O, exec, grim ~/Pictures/screenshot-$(date +%F-%T).png''
-        ''$mod|SHIFT|ALT, O, exec, grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%F-%T).png''
+        ''$mod, O, exec, tmp=$(mktemp /tmp/screenshot-XXXXXX.png) && grim "$tmp" && wl-copy < "$tmp" && ~/.config/hypr/screenshot-notify.sh "$tmp" 'Screenshot' 'Full screen copied to clipboard' ''
+        ''$mod|SHIFT, O, exec, tmp=$(mktemp /tmp/screenshot-XXXXXX.png) && grim -g "$(slurp)" "$tmp" && wl-copy < "$tmp" && ~/.config/hypr/screenshot-notify.sh "$tmp" 'Screenshot' 'Selection copied to clipboard' ''
+        ''$mod|ALT, O, exec, file=~/Pictures/screenshot-$(date +%F-%T).png && grim "$file" && ~/.config/hypr/screenshot-notify.sh "$file" 'Screenshot' 'Full screen saved to ~/Pictures' ''
+        ''$mod|SHIFT|ALT, O, exec, file=~/Pictures/screenshot-$(date +%F-%T).png && grim -g "$(slurp)" "$file" && ~/.config/hypr/screenshot-notify.sh "$file" 'Screenshot' 'Selection saved to ~/Pictures' ''
       ]
       ++ (
         builtins.concatLists (builtins.genList (i:

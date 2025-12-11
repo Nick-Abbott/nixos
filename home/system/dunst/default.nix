@@ -27,7 +27,14 @@
         corner_radius = 8;
         transparency = 0;
         icon_position = "left";
-        icon_size = 32;
+        max_icon_size = 128;
+        min_icon_size = 64;
+
+        mouse_left_click = "do_action, close_current";
+        mouse_middle_click = "close_current";
+        mouse_right_click = "close_all";
+
+        show_indicators = true;
       };
 
       urgency_low = {

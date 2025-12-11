@@ -13,8 +13,15 @@ in {
     (name: ./. + /${name}/default.nix)
     modules;
 
-  programs.zoxide.enable = true;
+  programs.zoxide = {
+    enable = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
   programs.fzf.enable = true;
+  programs.fd.enable = true;
+
   programs.btop = {
     enable = true;
     settings = {
@@ -32,8 +39,8 @@ in {
     vscode
     windsurf
     jetbrains.idea-community
-  ];
 
-  home.file."Games".source = "/data/games";
+    imv  # Image viewer for Wayland
+  ];
 }
 

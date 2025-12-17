@@ -41,6 +41,7 @@ in {
     jetbrains.idea-community
 
     imv  # Image viewer for Wayland
+    mangohud
   ];
 }
 

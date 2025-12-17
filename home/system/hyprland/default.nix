@@ -6,6 +6,11 @@
     executable = true;
   };
 
+  home.file.".config/hypr/power-menu.sh" = {
+    source = ./power-menu.sh;
+    executable = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -22,11 +27,12 @@
       "$chat1"    = "vesktop";
       "$chat2"    = "slack";
 
-      monitor = [ "DP-3, 5120x2160@120, 0x0, 1" ];
+      monitor = [ ",5120x2160@120,auto,1" ];
 
       env = [
         "XCURSOR_THEME,capitaine-cursors"
         "XCURSOR_SIZE,42"
+        "WLR_NO_HARDWARE_CURSORS,1"
       ];
 
       input = {
@@ -148,6 +154,8 @@
         "$mod, P, exec, playerctl play-pause"
 
         "$mod, Q, killactive"
+
+        "$mod, DELETE, exec, ~/.config/hypr/power-menu.sh"
 
         ''$mod, O, exec, tmp=$(mktemp /tmp/screenshot-XXXXXX.png) && grim "$tmp" && wl-copy < "$tmp" && ~/.config/hypr/screenshot-notify.sh "$tmp" 'Screenshot' 'Full screen copied to clipboard' ''
         ''$mod|SHIFT, O, exec, tmp=$(mktemp /tmp/screenshot-XXXXXX.png) && grim -g "$(slurp)" "$tmp" && wl-copy < "$tmp" && ~/.config/hypr/screenshot-notify.sh "$tmp" 'Screenshot' 'Selection copied to clipboard' ''

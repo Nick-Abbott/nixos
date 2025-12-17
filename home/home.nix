@@ -35,12 +35,12 @@
       "image/bmp" = "imv.desktop";
 
       # Web browser
-      "text/html" = "zen.desktop";
-      "x-scheme-handler/http" = "zen.desktop";
-      "x-scheme-handler/https" = "zen.desktop";
-      "x-scheme-handler/about" = "zen.desktop";
-      "x-scheme-handler/unknown" = "zen.desktop";
-      "application/pdf" = "zen.desktop";
+      "text/html" = "zen-twilight.desktop";
+      "x-scheme-handler/http" = "zen-twilight.desktop";
+      "x-scheme-handler/https" = "zen-twilight.desktop";
+      "x-scheme-handler/about" = "zen-twilight.desktop";
+      "x-scheme-handler/unknown" = "zen-twilight.desktop";
+      "application/pdf" = "zen-twilight.desktop";
 
       # Terminal
       "x-scheme-handler/terminal" = "com.mitchellh.ghostty.desktop";
@@ -53,8 +53,8 @@
       "text/x-typescript" = "code.desktop";
       "application/json" = "code.desktop";
       "application/xml" = "code.desktop";
-      "text/x-java" = "jetbrains-idea-ce.desktop";
-      "text/x-kotlin" = "jetbrains-idea-ce.desktop";
+      "text/x-java" = "idea-community.desktop";
+      "text/x-kotlin" = "idea-community.desktop";
     };
   };
 

@@ -9,6 +9,7 @@
         name = "Nick-Abbott";
       };
       init.defaultBranch = "main";
+      push.autoSetupRemote = true;
     };
   };
 }

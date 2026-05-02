@@ -2,6 +2,7 @@
 
 let
   modules = [
+    "heroic"
     "steam"
   ];
 in {

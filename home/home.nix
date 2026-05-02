@@ -53,10 +53,21 @@
       "text/x-typescript" = "code.desktop";
       "application/json" = "code.desktop";
       "application/xml" = "code.desktop";
-      "text/x-java" = "idea-community.desktop";
-      "text/x-kotlin" = "idea-community.desktop";
+      "text/x-java" = "jetbrains-idea.desktop";
+      "text/x-kotlin" = "jetbrains-idea.desktop";
     };
   };
 
   accounts.calendar.basePath = "$HOME/.calendar";
+
+  home.sessionVariables = {
+    JAVA_HOME = "${pkgs.zulu21}";
+    # Use Nix-provided Playwright browsers and skip npm downloads.
+    PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1";
+  };
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 }

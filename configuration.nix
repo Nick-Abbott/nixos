@@ -147,6 +147,8 @@ in
     ripgrep
     pavucontrol
     unzip
+    lsof
+    sqlite
 
     gcc
     nodejs
@@ -155,9 +157,15 @@ in
     hyprland-qtutils
     hyprpolkitagent
     libnotify
+    imagemagick
   ];
 
-  programs.ssh.startAgent = true;
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+    autoPrune.enable = true;
+  };
 
   programs.hyprland = {
     enable = true;
@@ -193,4 +201,3 @@ in
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-

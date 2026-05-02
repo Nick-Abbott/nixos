@@ -6,7 +6,9 @@ let
     "git"
     "ghostty"
     "neovim"
+    "ssh"
     "zen"
+    "python"
   ];
 in {
   imports = map
@@ -21,6 +23,7 @@ in {
   };
   programs.fzf.enable = true;
   programs.fd.enable = true;
+  programs.jq.enable = true;
 
   programs.btop = {
     enable = true;
@@ -38,10 +41,20 @@ in {
 
     vscode
     windsurf
-    jetbrains.idea-community
+    jetbrains.idea
+    insomnia
 
     imv  # Image viewer for Wayland
     mangohud
+    labelImg
+    ffmpeg
+    piper-tts
+
+    zulu21  # Java Zulu 21 JDK
+    gradle
+
+    # Playwright CLI + driver with packaged browsers (NixOS-friendly)
+    playwright
+    playwright-driver
   ];
 }
-

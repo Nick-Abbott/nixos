@@ -20,7 +20,7 @@
     settings = {
       "$mod"      = "SUPER";
       "$terminal" = "ghostty";
-      "$browser"  = "zen";
+      "$browser"  = "zen-twilight";
       "$editor"   = "code";
       "$editor2"  = "idea";
       "$aiEditor" = "windsurf";
@@ -38,6 +38,7 @@
       input = {
         kb_layout = "us";
         follow_mouse = 1;
+        sensitivity = -0.4;
       };
 
       general = {
@@ -107,7 +108,7 @@
       };
 
       windowrulev2 = [
-        "workspace 2, class:^(code|Code|idea|jetbrains-idea-cte|jetbrains-rustrover)$"
+        "workspace 2, class:^(code|Code|idea|jetbrains-idea|jetbrains-idea-cte|jetbrains-rustrover)$"
         "workspace 3, class:^(discord|vesktop|Slack|slack)$"
         "workspace 3, class:^(Spotify)"
         "workspace 4, class:^(steam)$"
@@ -184,5 +185,7 @@
     grim
     slurp
     wl-clipboard
+    playerctl
+    wev
   ];
 }

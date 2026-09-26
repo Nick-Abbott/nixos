@@ -1,0 +1,36 @@
+# Wayland / Hyprland desktop
+hyprland
+hyprpaper
+waybar
+dunst
+rofi-wayland
+ghostty
+
+# Desktop plumbing
+nm-connection-editor
+nm-applet
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+rtkit
+pavucontrol
+alsa-utils
+grim
+slurp
+wl-clipboard
+playerctl
+wev
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+polkit
+hyprpolkitagent
+
+# Common desktop apps
+firefox
+libnotify
+
+# Fonts / theming
+capitaine-cursors
+ttf-jetbrains-mono-nerd

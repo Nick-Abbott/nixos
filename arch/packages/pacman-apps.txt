@@ -1,0 +1,5 @@
+# Official-repo desktop/workstation apps
+spotify-launcher
+imv
+ffmpeg
+imagemagick

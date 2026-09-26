@@ -24,6 +24,7 @@ in {
   programs.fzf.enable = true;
   programs.fd.enable = true;
   programs.jq.enable = true;
+  programs.gh.enable = true;
 
   programs.btop = {
     enable = true;

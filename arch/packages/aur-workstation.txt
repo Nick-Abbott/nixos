@@ -1,0 +1,10 @@
+# Browsers / communication
+google-chrome
+zen-browser-bin
+vesktop-bin
+slack-desktop
+
+# Editors / IDEs / workstation apps
+windsurf
+jetbrains-toolbox
+insomnia-bin

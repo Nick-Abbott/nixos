@@ -52,6 +52,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   security.polkit.enable = true;
+  security.rtkit.enable = true;
 
   # Networking
   networking.hostName = "Nick-Workstation";
@@ -109,6 +110,7 @@ in
   # Hardware
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.amd.updateMicrocode = true;
+  powerManagement.cpuFreqGovernor = "performance";
   services.fwupd.enable = true;
   hardware.graphics = {
     enable = true;
@@ -131,6 +133,11 @@ in
     password = "temp123";
   };
   programs.zsh.enable = true;
+  programs.zoom-us.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 
   home-manager = {
     useUserPackages = true;
@@ -149,9 +156,12 @@ in
     unzip
     lsof
     sqlite
+    gnupg
+    pinentry-curses
 
     gcc
     nodejs
+    wrk2
 
     tuigreet
     hyprland-qtutils

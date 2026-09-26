@@ -1,0 +1,17 @@
+# Bluetooth
+blueman
+bluez
+bluez-utils
+
+# Printing
+cups
+
+# Firmware updates
+fwupd
+
+# Extra local compatibility tools
+wine
+winetricks
+
+# Misc optional GUI tools
+labelimg

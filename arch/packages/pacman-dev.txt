@@ -1,0 +1,8 @@
+git
+neovim
+nodejs
+python
+pipx
+jdk21-openjdk
+gradle
+docker

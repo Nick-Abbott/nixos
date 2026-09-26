@@ -1,0 +1,22 @@
+# Core CLI
+base-devel
+git
+curl
+unzip
+ripgrep
+fd
+jq
+lsof
+
+# Shell
+zsh
+fzf
+zoxide
+btop
+fastfetch
+openssh
+
+# Login / networking
+networkmanager
+greetd
+tuigreet

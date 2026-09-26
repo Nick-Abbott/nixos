@@ -1,0 +1,13 @@
+# Graphics / 32-bit runtime
+mesa
+lib32-mesa
+vulkan-radeon
+lib32-vulkan-radeon
+fuse2
+
+# Gaming stack
+steam
+gamemode
+gamescope
+mangohud
+lib32-mangohud

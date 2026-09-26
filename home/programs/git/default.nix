@@ -13,7 +13,7 @@
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
-      # Use a wrapper that loads the key into ssh-agent with a 4h cache on first sign.
+      # Use a wrapper that loads the key into ssh-agent on first sign.
       gpg.ssh.program = "${config.home.homeDirectory}/.local/bin/git-ssh-sign";
       user.signingKey = "~/.ssh/id_ed25519.pub";
     };
@@ -25,7 +25,7 @@
   '';
 
   # Wrapper that auto-loads your SSH key into the agent on first commit/tag sign,
-  # caching it for 4h, then defers to the real ssh-keygen.
+  # using the agent's cache lifetime, then defers to the real ssh-keygen.
   home.file.".local/bin/git-ssh-sign" = {
     executable = true;
     text = ''
@@ -36,9 +36,9 @@
       # Fingerprint of key file
       fp=$(ssh-keygen -lf "$key" | awk '{print $2}')
 
-      # If agent missing the key, add with 4h lifetime (ssh-agent default is set via HM).
+      # If the agent is missing the key, add it using the agent's default lifetime.
       if ! ssh-add -l 2>/dev/null | grep -q "$fp"; then
-        ssh-add -t 4h "$key"
+        ssh-add "$key"
       fi
 
       exec ssh-keygen -Y sign "$@"

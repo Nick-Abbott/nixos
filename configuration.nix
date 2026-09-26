@@ -84,7 +84,8 @@ in
     settings = {
       default_session = {
         user = "nabbott";
-        command = "${pkgs.dbus}/bin/dbus-run-session Hyprland";
+        # Use the systemd user bus and Hyprland's supervised launcher.
+        command = "${config.programs.hyprland.package}/bin/start-hyprland";
       };
     };
   };

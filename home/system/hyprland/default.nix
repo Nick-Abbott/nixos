@@ -16,6 +16,7 @@
     package = null;
     portalPackage = null;
     systemd.enable = true;
+    configType = "hyprlang";
 
     settings = {
       "$mod"      = "SUPER";
@@ -55,7 +56,6 @@
 
       dwindle = {
         force_split = 2;
-        pseudotile = true;
         preserve_split = true;
         split_width_multiplier = 2;
       };
@@ -107,15 +107,15 @@
         ];
       };
 
-      windowrulev2 = [
-        "workspace 2, class:^(code|Code|idea|jetbrains-idea|jetbrains-idea-cte|jetbrains-rustrover)$"
-        "workspace 3, class:^(discord|vesktop|Slack|slack)$"
-        "workspace 3, class:^(Spotify)"
-        "workspace 4, class:^(steam)$"
+      windowrule = [
+        "workspace 2, match:class ^(code|Code|idea|jetbrains-idea|jetbrains-idea-cte|jetbrains-rustrover)$"
+        "workspace 3, match:class ^(discord|vesktop|Slack|slack)$"
+        "workspace 3, match:class ^(Spotify)"
+        "workspace 4, match:class ^(steam)$"
       ];
 
       layerrule = [
-        "dimaround, rofi"
+        "dim_around on, match:namespace rofi"
       ];
 
       exec-once = [

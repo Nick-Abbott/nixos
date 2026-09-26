@@ -6,6 +6,8 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
+    withRuby = true;
+    withPython3 = true;
 
     extraPackages = with pkgs; [
       ripgrep

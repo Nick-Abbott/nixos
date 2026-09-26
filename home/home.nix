@@ -15,12 +15,13 @@
     size = 42;
   };
 
-  gtk = {
+  gtk = rec {
     enable = true;
     theme = {
       name = "Gruvbox-Dark";
       package = pkgs.gruvbox-gtk-theme;
     };
+    gtk4.theme = theme;
   };
 
   xdg.mimeApps = {

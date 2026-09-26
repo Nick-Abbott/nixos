@@ -12,8 +12,13 @@ in {
       ipc = "on";
       splash = false;
 
-      preload = ''$img'';
-      wallpaper = '', $img'';
+      wallpaper = [
+        {
+          monitor = "";
+          path = "$img";
+          fit_mode = "cover";
+        }
+      ];
     };
   };
 
